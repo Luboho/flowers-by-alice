@@ -5,7 +5,7 @@
 </template>
 
 <style>
-.nuxt-logo {
+.nuxt-logo { 
   height: 180px;
 }
 </style>
