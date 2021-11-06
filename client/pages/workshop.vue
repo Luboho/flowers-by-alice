@@ -32,7 +32,7 @@
     <h1 class="">Hello World</h1>
     <h2 class="">Hello World</h2>
     <h3>Keep up to date </h3>
-    <p id="gallery" class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
+    <p class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
     <p class="drop-cap">Ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
     </div>
   </div>
@@ -42,20 +42,20 @@
 <script>
 import Heading from '../components/Heading.vue'
 export default {
-  name: "index", /* eslint-disable-line */
+  name: "workshop", /* eslint-disable-line */
   components: {
     Heading
   },
   data: () => ({
     bgImage: {
-      sm: "/occasions/occasions-header-bg-sm.jpg",
-      lg: "/occasions/occasions-header-bg-lg.jpg",
+      sm: "/workshops/workshop-header-bg-sm.jpg",
+      lg: "/workshops/workshop-header-bg-lg.jpg"
     },
     textColor: {
       h2: "",
       paragraph: "text-gray-500"
     } // TAilwind v-bind :class format
-  }),
+  })
 }
 </script>
 

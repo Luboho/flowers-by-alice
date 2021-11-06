@@ -1,0 +1,64 @@
+body {
+  max-width: 1800px;
+  margin: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+p:first-letter {
+  color: #7A9B76;
+  font-size: 1.2rem;
+  font-weight: 900;
+  margin-right: .08em;
+  text-shadow: -1px -1px 1px rgb(196, 194, 194);
+  font-family: 'Overlock SC', Roboto;
+}
+h1 {
+  color: #676464;
+  line-height: 2rem;
+  font-family: 'Overlock SC';
+}
+h2 {
+  color: #7A9B76;
+  font-weight: bold;
+  line-height: 2rem;
+  font-family: Overlock;
+  letter-spacing: .1rem;
+}
+h3 {
+  color: #4D3F58;
+  font-weight: 200;
+  line-height: 2rem;
+  font-family: 'Overlock';
+  letter-spacing: .05rem;
+}
+p {
+  font-family: Overlock, Roboto;
+  color: #4D3F58;
+  text-indent: 1rem;
+  line-height: 2rem;
+  letter-spacing: .03rem;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 680px) {
+  h1 {
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 681px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+  h2 {
+    font-size: 1.9rem;
+  }
+}

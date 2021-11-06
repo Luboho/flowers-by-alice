@@ -16,5 +16,8 @@ module.exports = {
   plugins: [
   ],
   // add your custom rules here
-  rules: {}
+  rules: {
+    "vue/attribute-hyphenation": [0],
+    "no-console": [0]
+  }
 }
