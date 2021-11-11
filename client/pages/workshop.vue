@@ -42,7 +42,7 @@
 <script>
 import Heading from '../components/Heading.vue'
 export default {
-  name: "workshop", /* eslint-disable-line */
+  name: "Workshop",
   components: {
     Heading
   },

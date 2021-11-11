@@ -1,7 +1,7 @@
 <template>
     <div class="ml-auto mr-auto max-w-1800px min-w-smallScreen">
       <Navbar />
-      <Nuxt />
+        <Nuxt />
       <Footer />
     </div>
 </template>

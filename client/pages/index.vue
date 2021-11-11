@@ -3,48 +3,22 @@
     <div class="relative">
       <Heading :bgImage="bgImage" :textColor="textColor" />
     </div>
-    <div class="mt-20 border-2 border-red-500">
-    <h1 class="">Hello World</h1>
-    <h2 class="">Hello World</h2>
-    <h3>Keep up to date </h3>
-    <p class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
-    <p class="drop-cap">Ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
-    </div>
-  <div class="p-1 border-2 border-red-500">
-    <h1 class="">Hello World</h1>
-    <h2 class="">Hello World</h2>
-    <h3>Keep up to date </h3>
-    <p class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
-    <p class="drop-cap">Ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
-    </div><div class="p-1 border-2 border-red-500">
-    <h1 class="">Hello World</h1>
-    <h2 class="">Hello World</h2>
-    <h3>Keep up to date </h3>
-    <p class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
-    <p class="drop-cap">Ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
-    </div><div class="p-1 border-2 border-red-500">
-    <h1 class="">Hello World</h1>
-    <h2 class="">Hello World</h2>
-    <h3>Keep up to date </h3>
-    <p class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
-    <p class="drop-cap">Ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
-    </div><div class="p-1 border-2 border-red-500">
-    <h1 class="">Hello World</h1>
-    <h2 class="">Hello World</h2>
-    <h3>Keep up to date </h3>
-    <p id="gallery" class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
-    <p class="drop-cap">Ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse unde reprehenderit saepe voluptate natus, similique vero error harum dolor aperiam voluptatibus debitis pariatur vitae? Aliquam perspiciatis itaque voluptatem exercitationem!</p>
-    </div>
+    <Article />
+    <Filtering />
   </div>
 
 </template>
 
 <script>
 import Heading from '../components/Heading.vue'
+import Article from '../components/Article.vue'
+import Filtering from '../components/Filtering.vue'
 export default {
-  name: "index", /* eslint-disable-line */
+  name: "Index",
   components: {
-    Heading
+    Heading,
+    Article,
+    Filtering
   },
   data: () => ({
     bgImage: {

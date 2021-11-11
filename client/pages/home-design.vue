@@ -3,7 +3,7 @@
     <div class="relative">
       <Heading :bgImage="bgImage" :textColor="textColor" />
     </div>
-    <div class="mt-20 border-2 border-red-500">
+    <div class="border-2 border-red-500">
     <h1 class="">Hello World</h1>
     <h2 class="">Hello World</h2>
     <h3>Keep up to date </h3>
@@ -42,7 +42,7 @@
 <script>
 import Heading from '../components/Heading.vue'
 export default {
-  name: "home-design", /* eslint-disable-line */
+  name: "HomeDesign",
   components: {
     Heading
   },

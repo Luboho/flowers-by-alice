@@ -1,14 +1,14 @@
 <template>
 <transition name="fade">
 
-  <div v-show="scrollNav" class="relative z-40 ml-auto mr-auto inline-block ">
-  <nav id="nav" class="w-screen max-w-1800px drop-shadow-lg bg-lightPink top-0 fixed h-20 p-6 ease-in-out transform transition-all duration-750"
+  <div v-show="scrollNav" class="relative z-40">
+  <nav id="nav" class="w-full block mx-auto left-0 bg-lightPink top-0 fixed h-20 p-6 shadow-lg ease-in-out transform transition-all duration-1000"
                 :class="scrollNav ? 'translate-y-0' : '-translate-y-full'">
-    <div class="flex items-center justify-between max-w-1800px">
+    <div class="flex align-items-center justify-between mx-auto max-w-1800px">
 
-      <!-- Header logo -->
+      <!-- Nav logo -->
       <div>
-        <img class="absolute w-36 h-auto -mt-10" src="/logo.png" alt="Flowers by Alice">
+        <img class="w-36 h-auto -mt-5" src="/logo.png" alt="Flowers by Alice">
       </div>
 
       <!-- Mobile toggle / Burger icon -->
@@ -27,7 +27,7 @@
 
       <!-- Navbar -->
       <div class="hidden font-overlockSC md:block">
-        <ul class="flex items-center space-x-8 text-aliceBlue text-sm">
+        <ul class="flex items-center space-x-6 text-aliceBlue text-lg">
           <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium transition duration-250 duration-300 ease-in-out transform active:scale-75">
               <a href="">Latest Events</a>
           </li>
@@ -35,31 +35,31 @@
           <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium
                                 transition duration-250 ease-in-out"
               @mouseover="submenu = true" @mouseleave="submenu = false">
-              <div class="flex items-center transition duration-300 ease-in-out transform active:scale-75">
+              <div class="transition duration-300 ease-in-out transform active:scale-75">
                 <nuxt-link class=""
-                          :class="{ 'border-b-2 border-alicePink text-alicePink': currentPath == '/' }"
+                          :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/' }"
                           to="/">Occassions
                 </nuxt-link>
-                <i class = "material-icons">arrow_drop_down</i>
+                <i class = "absolute top-8 left-8 material-icons">arrow_drop_down</i>
               </div>
               <transition name="slide">
                 <div v-if="submenu" class="expendable text-aliceBlue absolute px-10 pt-10 pb-5 bg-lightPink bg-opacity-90 text-sm flex flex-col ml-7">
                   <div class="transition hover:text-alicePink hover:font-bold font-medium duration-300 ease-in-out transform active:scale-75">
-                    <nuxt-link to="/wedding" class="mb-2"
-                              :class="{ 'border-b-2 border-alicePink text-alicePink': currentPath == '/wedding' }"
-                              @click="isOpen = false" >Wedding
+                    <nuxt-link :to="{ name: 'wedding'}" class="mb-2"
+                              :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/wedding' }"
+                              >Wedding
                     </nuxt-link>
                   </div>
                   <div class="transition hover:text-alicePink hover:font-bold font-medium duration-300 ease-in-out transform active:scale-75">
-                    <nuxt-link to="/workshop" class="my-2"
-                              :class="{ 'border-b-2 border-alicePink text-alicePink': currentPath == '/workshop' }"
-                              @click="isOpen = false" >Workshops
+                    <nuxt-link :to="{ name: 'workshop'}" class="my-2"
+                               :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/workshop' }"
+                               >Workshops
                     </nuxt-link>
                   </div>
                   <div class="transition hover:text-alicePink hover:font-bold font-medium duration-300 ease-in-out transform active:scale-75">
-                    <nuxt-link to="/funeral" class="my-2"
-                              :class="{ 'border-b-2 border-alicePink text-alicePink': currentPath == '/funeral' }"
-                              @click="isOpen = false" >Funerals
+                    <nuxt-link :to="{ name: 'funeral'}" class="my-2"
+                              :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/funeral' }"
+                              >Funerals
                     </nuxt-link>
                   </div>
                 </div>
@@ -72,19 +72,19 @@
           <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium
                                 transition duration-250 ease-in-out transform active:scale-75">
               <nuxt-link class=""
-                         :class="{ 'border-b-2 border-alicePink text-alicePink': currentPath == '/home-design' }"
+                         :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/home-design' }"
                          to="/home-design">Home Design</nuxt-link>
           </li>
           <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium
                                 transition duration-250 ease-in-out transform active:scale-75">
               <nuxt-link class=""
-                         :class="{ 'border-b-2 border-alicePink text-alicePink': currentPath == '/contact' }"
+                         :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/contact' }"
                          to="/contact">Contact</nuxt-link>
           </li>
         </ul>
       </div>
 
-      <!-- Dark Background Transition -->
+      <!-- Modal -->
       <transition
         enter-class="opacity-0"
         enter-active-class="ease-out transition-medium"
@@ -126,32 +126,37 @@
             </a>
           </li>
           <!-- Expandable -->
-          <li @mouseover="submenu = true" @mouseleave="submenu = false" @click="isOpen = false" >
-              <div class="flex items-center">
-                <nuxt-link to="/" class="my-4 inline-block hover:text-alicePink hover:font-bold font-medium transition duration-250 ease-in-out transform active:scale-75"
-                           :class="{ 'border-b-2 border-alicePink text-alicePink': currentPath == '/' || currentPath == '/wedding' || currentPath == '/workshop' || currentPath == '/funeral' }"
+          <li @mouseover="submenu = true" @mouseleave="submenu = false">
+              <div class="flex items-center" @click="isOpen = false">
+                <nuxt-link :to="{ name: 'index' }" class="my-4 inline-block hover:text-alicePink hover:font-bold font-medium transition duration-250 ease-in-out transform active:scale-75"
+                           :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/' || currentPath == '/wedding' || currentPath == '/workshop' || currentPath == '/funeral' }"
                            >Occasions
                 </nuxt-link>
                 <i class = "material-icons">arrow_drop_down</i>
               </div>
               <transition name="slide">
-                <div v-if="submenu" class="z-50 expendable text-aliceBlue absolute px-10 pt-10 pb-5 bg-lightPink bg-opacity-90 text-sm flex flex-col ml-7 border"
-                     @click="isOpen = false">
-                  <nuxt-link to="/wedding" class="mb-2 hover:text-alicePink hover:font-bold font-medium
-                                transition duration-250 ease-in-out transform active:scale-75"
-                             :class="{ 'text-alicePink': currentPath == '/wedding' }"
-                             >Wedding
-                  </nuxt-link>
-                  <nuxt-link to="/workshop" class="my-2 hover:text-alicePink hover:font-bold font-medium
-                                transition duration-250 ease-in-out transform active:scale-75"
-                             :class="{ 'text-alicePink': currentPath == '/workshop' }"
-                             >Workshops
-                  </nuxt-link>
-                  <nuxt-link to="/funeral" class="my-2 hover:text-alicePink hover:font-bold font-medium
-                                transition duration-250 ease-in-out transform active:scale-75"
-                             :class="{ 'text-alicePink': currentPath == '/funeral' }"
-                             >Funerals
-                  </nuxt-link>
+                <div v-if="submenu" class="z-50 expendable text-aliceBlue absolute px-10 pt-10 pb-5 bg-lightPink bg-opacity-90 text-sm flex flex-col ml-7 border">
+                  <div class="mb-2 hover:text-alicePink hover:font-bold font-medium transition duration-250 ease-in-out transform active:scale-75"
+                       @click="isOpen = false">
+                    <nuxt-link :to="{ name: 'wedding'}"
+                               :class="{ 'text-alicePink': currentPath == '/wedding' }"
+                               >Wedding
+                    </nuxt-link>
+                  </div>
+                  <div class="my-2 hover:text-alicePink hover:font-bold font-medium transition duration-250 ease-in-out transform active:scale-75"
+                       @click="isOpen = false">
+                    <nuxt-link :to="{ name: 'workshop'}"
+                               :class="{ 'text-alicePink': currentPath == '/workshop' }"
+                               >Workshops
+                    </nuxt-link>
+                  </div>
+                  <div class="my-2 hover:text-alicePink hover:font-bold font-medium transition duration-250 ease-in-out transform active:scale-75"
+                       @click="isOpen = false">
+                    <nuxt-link :to="{ name: 'funeral' }"
+                               :class="{ 'text-alicePink': currentPath == '/funeral' }"
+                               >Funerals
+                    </nuxt-link>
+                  </div>
                 </div>
               </transition>
           </li>
@@ -162,25 +167,25 @@
                                @click="isOpen = false" >Gallery
             </a>
           </li>
-          <li>
+          <li @click="isOpen = false" >
             <nuxt-link to="/home-design" class="my-4 inline-block hover:text-alicePink hover:font-bold font-medium
                                 transition duration-250 ease-in-out transform active:scale-75"
-                       :class="{ 'border-b-2 border-alicePink text-alicePink': currentPath == '/home-design' }"
-                       @click="isOpen = false" >Home design
+                       :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/home-design' }"
+                       >Home design
             </nuxt-link>
           </li>
-          <li>
+          <li @click="isOpen = false" >
             <nuxt-link to="/contact" class="my-4 inline-block hover:text-alicePink hover:font-bold font-medium
                                 transition duration-250 ease-in-out transform active:scale-75"
-                       :class="{ 'border-b-2 border-alicePink text-alicePink': currentPath == '/contact' }"
-                       @click="isOpen = false" >Contact
+                       :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/contact' }"
+                       >Contact
             </nuxt-link>
           </li>
         </ul>
 
         <div class="follow mt-5">
           <h3 class="text-sm">Follow us:</h3>
-          <div class="social flex space-x-5 mt-4 ">
+          <div class="social flex justify-center space-x-5 mt-4 ">
             <a href="#">
               <svg
                 aria-hidden="true" focusable="false"
@@ -219,7 +224,8 @@
             </a>
           </div>
         </div>
-
+        <!-- Nav logo -->
+        <img class="w-36 mt-24px h-auto container mx-auto"  src="/logo.png" alt="Flowers by Alice">
       </aside>
 
     </div>
@@ -282,6 +288,7 @@ export default {
 .expendable {
   transform-origin: top;
   transition: transform .4s ease-in-out;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
 }
 .slide-enter, .slide-leave-to{
   transform: scaleY(0);
