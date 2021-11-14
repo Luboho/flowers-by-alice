@@ -273,6 +273,7 @@ export default {
     drawer() {
       this.isOpen = !this.isOpen;
     },
+
   },
 };
 </script>
@@ -293,5 +294,6 @@ export default {
 .slide-enter, .slide-leave-to{
   transform: scaleY(0);
 }
+
 </style>
 

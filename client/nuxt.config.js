@@ -28,7 +28,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/scroll-detect.js', mode: 'client'}
+    { src: '~/plugins/scroll-detect.js', mode: 'client'},
+    // { src: '~/plugins/coolLightBox.client.js', mode: 'client'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -40,7 +41,12 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // '@aceforth/nuxt-optimized-images',
   ],
+
+  // optimizedImages: {
+  //   optimizeImages: true
+  // },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
