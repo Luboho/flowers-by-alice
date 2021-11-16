@@ -1,16 +1,16 @@
 <template>
-  <div class="w-full mx-auto block mt-28 sm:mt-20 md:mt-64px relative" >
+  <div id="gallery" class="w-full mx-auto block mt-6 sm:mt-48px relative" >
 
-    <div class=" flex flex-wrap flex-col sm:flex-row justify-between md:justify-evenly content-center mx-24px sm:mx-64px">
-      <div v-for="(item, imgIndex ) in items" :key="imgIndex" class="relative m-2">
+    <div class=" flex flex-wrap flex-col sm:flex-row justify-center md:justify-evenly content-center mx-24px sm:mx-64px">
+      <div v-for="(item, imgIndex ) in items" :key="imgIndex" class="relative my-2">
         <div class="relative">
-          <img class=" cursor-pointer w-full sm:max-w-64" :src="item" @click="index = imgIndex">
+          <img class=" cursor-pointer w-full sm:max-w-64" :src="item.url" @click="index = imgIndex">
         </div>
       </div>
     </div>
 
     <div class="">
-      <CoolLightBox :items="items"
+      <CoolLightBox :items="pictures"
                     :index="index"
                     @on-open="showNav(false)"
                     @close="index = null">
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import CoolLightBox from "vue-cool-lightbox";
 import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
 
@@ -54,9 +54,18 @@ export default {
       index: null,
   }),
 
+  computed: {
+    pictures() {
+      return this.items.map((item) => item.url)
+    }
+  },
+
   methods: {
     ...mapMutations({
       showNav: 'nav/SET_SCROLL_NAV'
+    }),
+    ...mapActions({
+      getList: 'images/getList'
     })
   }
 }

@@ -41,6 +41,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/vuetify',
     // '@aceforth/nuxt-optimized-images',
   ],
 
@@ -53,7 +54,9 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
-
+  vuetify: {
+    customVariables: ['~/assets/variables.scss']
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'http://localhost:8000',
