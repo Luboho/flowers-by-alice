@@ -4,6 +4,7 @@ use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\SubscriberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,6 @@ use App\Http\Controllers\ImageController;
 
 Route::get('/images', [ImageController::class, 'index']);
 Route::get('/not-paginated-items', [ImageController::class, 'getNotPaginatedList']);
+
+Route::post('/subscribe', [SubscriberController::class, 'store']);
 

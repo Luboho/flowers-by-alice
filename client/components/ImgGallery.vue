@@ -5,7 +5,7 @@
     </div>
     <div v-else class=" flex flex-wrap flex-col sm:flex-row justify-center content-center mx-24px sm:mx-64px">
       <div v-for="(item, imgIndex) in items" :key="imgIndex" class="relative m-1">
-        <transition name="loadMoreImages" appear>
+        <transition name="loadMoreImages">
           <img
                v-show="loaded"
                class="cursor-pointer w-full sm:max-w-64"

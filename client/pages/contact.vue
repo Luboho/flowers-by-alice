@@ -1,6 +1,6 @@
 <template>
-  <div class="w-screen h-auto mt-32">
-    <div class="m-24px sm:m-64px">
+  <div class="mx-0 h-auto mt-32">
+    <div class="max-w-1024px m-24px sm:m-64px">
       <!-- Header -->
       <h1>Contact</h1>
       <p>
@@ -21,7 +21,7 @@
     <!-- End of Header -->
 
     <!-- Contact Form -->
-    <div class="mt-48px max-w-1024px block mx-auto">
+    <div class="mt-48px block mx-auto">
         <h1>Contact Form</h1>
 
         <form class="mx-auto font-overlock " @submit.prevent="submit">
