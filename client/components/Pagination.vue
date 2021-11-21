@@ -1,60 +1,71 @@
 <template>
-  <div>
+  <div class="mt-24px">
     <div class="text-center">
         <v-pagination
           v-model="currentPage"
           :length="lastPage"
           :total-visible="8"
-          :dark="true"
-          :color="'#a9a9aa'"
+          :dark="false"
+          :color="'#7A9B76'"
         ></v-pagination>
     </div>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
   export default {
     name: "Pagination",
     props: {
-      store: {},
-      collection: {},
-      filter: {
-            sortByUnread: false,
-            filterByCategory: []
+      store: {
+        required: true,
+        type: String,
+        default: function() {
+          return ""
         }
+      },
+      collection: {
+        required: true,
+        type: String,
+        default: function() {
+          return ""
+        }
+      },
     },
+      computed: {
+        currentPage: {
+          get() {
+            return this.$store.state[this.store][this.collection].meta.current_page;
+          },
+          set( value ){
+            this.$store.commit(this.store + '/SET_CURRENT_PAGE', value);
+          }
+        },
+        lastPage: {
+          get() {
+            return this.$store.state[this.store][this.collection].meta.last_page;
+          }
+        },
+        ...mapState({
+          filterByCategory: state => state.filterByCategory.filterByCategory
+        })
+      },
     watch: {
       currentPage(newVal, oldVal) {
         this.paginatePage(newVal);
       }
     },
-    computed: {
-      currentPage: {
-        get() {
-          return this.$store.state[this.store][this.collection].meta.current_page;
-        },
-        set( value ){
-          this.$store.commit(this.store + '/SET_CURRENT_PAGE', value);
-        }
-      },
-      lastPage: {
-        get() {
-          return this.$store.state[this.store][this.collection].meta.last_page;
-        }
-      },
-    },
 
   methods: {
     paginatePage(pageNumber) {
-      this.$store.dispatch(this.store + '/getList', { pageNumber: pageNumber, sortByUnread: this.filter.sortByUnread, filterByCategory: this.filter.filterByCategory});
+      this.$store.dispatch(this.store + '/getList', { pageNumber: pageNumber, category: this.filterByCategory});
+      this.$store.dispatch('images/setLoaded', {bool: false});
+      this.scrollTo();
       // this.$store.dispatch('spinner/setSpinner', true);
-      this.scrollToTopSmooth();
     },
-    scrollToTopSmooth() {
-      return window.scrollTo({
-        top: 180,
-        behavior: 'smooth'
-      });
+    scrollTo() {
+      const gallery = document.getElementById("filterNav");
+      return gallery.scrollIntoView();
     }
   }
 }

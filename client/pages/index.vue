@@ -4,11 +4,11 @@
         <Heading :bgImage="bgImage" :textColor="textColor" />
     </div>
     <Article />
-    <Filtering />
+    <Filtering :items="items" :notPaginatedItems="notPaginatedItems" />
     <ImgGallery :items="items" />
 
     <div v-if="items" v-show="paginationTotal > 10">
-        <Pagination store="images" collection="images" :filter="filter" />
+        <Pagination store="images" collection="items" :filterByCategory="filterByCategory" />
     </div>
   </div>
 </template>
@@ -20,7 +20,6 @@ import Article from '../components/Article.vue'
 import Filtering from '../components/Filtering.vue'
 import ImgGallery from '../components/ImgGallery.vue'
 import Pagination from './../components/Pagination.vue'
-// import Gallery from '../components/Gallery.vue'
 
 export default {
   name: "Index",
@@ -32,9 +31,6 @@ export default {
     Pagination
   },
   data: () => ({
-    filter: {
-      filterByCategory: ['funeral']
-    },
     bgImage: {
       sm: "/occasions/occasions-header-bg-sm.jpg",
       lg: "/occasions/occasions-header-bg-lg.jpg",
@@ -47,27 +43,22 @@ export default {
   }),
 
   async fetch() {
-      await this.$store.dispatch('images/getList', { pageNumber: 0, filterByCategory: this.filter.filterByCategory});
-  },
+      await this.$store.dispatch('images/getList', { pageNumber: 0, category: 'all'});
+      await this.$store.dispatch('images/getNotPaginatedList')
 
+  },
   computed: {
     ...mapState({
-      items: state => state.images.images.data,
-      paginationTotal: state => state.images.images.meta.total
+      filterByCategory: state => state.filterByCategory.filterByCategory,
+      paginationTotal: state => state.images.items.meta.total,
+      items: state => state.images.items.data,
+      notPaginatedItems: state => state.images.notPaginatedItems.data
     })
   },
 
-  watch: {
-      filter: {
-          deep: true,
-          handler(newVal, oldVal) {
-              if(newVal) {
-                  this.$store.dispatch('images/getList', { pageNumber: 0, category: this.filter.filterByCategory })
-              }
-          }
-      }
+  mounted() {
+    // this.$store.dispatch('images/getNotPaginatedList')
   },
-
   methods: {
     ...mapMutations({
       showNav: 'nav/SET_SCROLL_NAV'
@@ -75,6 +66,7 @@ export default {
     ...mapActions({
         refreshData: 'images/getList',
         getList: 'users/getList',
+        getNotPaginatedList: 'images/getNotPaginatedList'
     }),
   },
 

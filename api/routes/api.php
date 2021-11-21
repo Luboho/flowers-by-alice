@@ -21,3 +21,5 @@ use App\Http\Controllers\ImageController;
 // });
 
 Route::get('/images', [ImageController::class, 'index']);
+Route::get('/not-paginated-items', [ImageController::class, 'getNotPaginatedList']);
+

@@ -53,13 +53,13 @@
                   <div class="transition hover:text-alicePink hover:font-bold font-medium duration-300 ease-in-out transform active:scale-75">
                     <nuxt-link :to="{ name: 'workshop'}" class="my-2"
                                :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/workshop' }"
-                               >Workshops
+                               >Workshop
                     </nuxt-link>
                   </div>
                   <div class="transition hover:text-alicePink hover:font-bold font-medium duration-300 ease-in-out transform active:scale-75">
                     <nuxt-link :to="{ name: 'funeral'}" class="my-2"
                               :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/funeral' }"
-                              >Funerals
+                              >Funeral
                     </nuxt-link>
                   </div>
                 </div>
@@ -147,14 +147,14 @@
                        @click="isOpen = false">
                     <nuxt-link :to="{ name: 'workshop'}"
                                :class="{ 'text-alicePink': currentPath == '/workshop' }"
-                               >Workshops
+                               >Workshop
                     </nuxt-link>
                   </div>
                   <div class="my-2 hover:text-alicePink hover:font-bold font-medium transition duration-250 ease-in-out transform active:scale-75"
                        @click="isOpen = false">
                     <nuxt-link :to="{ name: 'funeral' }"
                                :class="{ 'text-alicePink': currentPath == '/funeral' }"
-                               >Funerals
+                               >Funeral
                     </nuxt-link>
                   </div>
                 </div>

@@ -18,7 +18,7 @@ class ImageResource extends JsonResource
             'id' => $this->id,
             'url' => $this->url,
             'category' => $this->category,
-            'created_at' => $this->created_at
+            'created_at' => $this->created_at,
         ];
 
         return $arrayData;
