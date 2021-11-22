@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="relative">
-        <Heading :bgImage="bgImage" :textColor="textColor" />
+        <Heading :bgImage="bgImage" :textColor="textColor" :headingText="headingText" />
     </div>
     <Article />
     <Filtering :items="items" :notPaginatedItems="notPaginatedItems" />
@@ -39,6 +39,10 @@ export default {
       h2: "",
       paragraph: "text-gray-500"
     }, // TAilwind v-bind :class format
+    headingText: {
+      title: "Lorem Ipsum Dolor Natus cum aspernatur",
+      text: "Batus! Natus, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repellendus tenetur!"
+    },
       index: null,
   }),
 

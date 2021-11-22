@@ -89,7 +89,9 @@
                         autocomplete="email"
                         @click="clearErrors"
                     >
-                    <p class="text-red-600 text-sm" v-text="errors.email ? errors.email[0] : ''"></p>
+                    <transition name="fade">
+                      <p class="text-red-600 text-sm" v-text="errors.email ? errors.email[0] : ''"></p>
+                    </transition>
                 </div>
               </div>
 
@@ -110,7 +112,9 @@
                       autocomplete="email"
                       @click="clearErrors"
                   >
-                  <p class="text-red-600 text-sm" v-text="errors.phone ? errors.phone[0] : ''"></p>
+                  <transition  name="fade">
+                    <p class="text-red-600 text-sm" v-text="errors.phone ? errors.phone[0] : ''"></p>
+                  </transition>
               </div>
             </div>
 
@@ -131,7 +135,9 @@
                       placeholder="Here comes your message..."
                       @click="clearErrors"
                   ></textarea>
-                  <p class="text-red-600 text-sm" v-text="errors.message ? errors.message[0] : ''"></p>
+                  <transition name="fade">
+                    <p class="text-red-600 text-sm" v-text="errors.message ? errors.message[0] : ''"></p>
+                  </transition>
                 </div>
                 <div class="">
                     <button class="bg-alicePink block mx-auto sm:w-80 tracking-widest rounded py-3 px-6 my-2 transition duration-250 ease-in-out transform active:scale-75"
@@ -173,22 +179,28 @@ export default {
 
     methods: {
         async submit(e) {
-            // try {
-            //     let errors = [];
-            //     // await this.$axios.$get('sanctum/csrf-cookie');
-            //     await this.$axios.post('/api/contact-us', {
-            //         name: this.form.name,
-            //         surname: this.form.surname,
-            //         email: this.form.email,
-            //         phone: this.form.phone,
-            //         message: this.form.message
-            //     }).then(() => console.log)
-            //       .then(() => this.$router.replace({path: '/'}));
-            // } catch (e) {
-            //     if(e.response.data.errors) {
-            //         this.errors = e.response.data.errors;
-            //     }
-            // }
+          if(this.form.email === "" || this.form.email === "") {
+            this.errors = {
+                            phone:["Please, let at least one contact detail for us."],
+                            email: [ "Please, let at least one contact detail for us."]
+                          }
+          } else {
+            try {
+                await this.$axios.$get('sanctum/csrf-cookie');
+                await this.$axios.post('/api/contact-us', {
+                    name: this.form.name,
+                    surname: this.form.surname,
+                    email: this.form.email,
+                    phone: this.form.phone,
+                    message: this.form.message
+                }).then(() => console.log)
+                  .then(() => this.$router.replace({path: '/'}));
+            } catch (e) {
+                if(e.response.data.errors) {
+                    this.errors = e.response.data.errors;
+                }
+            }
+          }
         },
         clearErrors(e) {
             if(this.errors) {
@@ -203,5 +215,10 @@ export default {
 </script>
 
 <style>
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>

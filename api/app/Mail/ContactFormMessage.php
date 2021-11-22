@@ -7,10 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewSubscribe extends Mailable
+class ContactFormMessage extends Mailable
 {
     use Queueable, SerializesModels;
-
     public $data;
     /**
      * Create a new message instance.
@@ -29,8 +28,8 @@ class NewSubscribe extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.subscriber')
-                    ->with('data', $this->data)
-                    ->subject('New Subscriber');
+        return $this->markdown('emails.contactFormMessage')
+            ->with('data', $this->data)
+            ->subject('Message from website visitor.');
     }
 }

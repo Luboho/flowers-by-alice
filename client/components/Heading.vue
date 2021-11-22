@@ -3,9 +3,9 @@
 
     <img class="relative z-10" :src="[smallScreen ? bgImage.sm : bgImage.lg]" alt="">
     <div class="z-20 w-3/5 lg:w-2/5 absolute top-48px sm:top-64px mx-24px sm:mx-64px">
-      <h2 class="" :class="textColor.h2">Lorem ipsum Dolor for every Occassion</h2>
+      <h2 class="" :class="textColor.h2">{{ headingText.title }}</h2>
       <p class=" mt-5 smallScreen:mt-12 sm:mt-18 leading-tight sm:leading-relaxed"
-         :class="textColor.paragraph"> natus! Natus, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repellendus tenetur!</p>
+         :class="textColor.paragraph"> {{ headingText.text }}</p>
     </div>
   </div>
 </template>
@@ -19,6 +19,10 @@ export default {
       required: true,
     },
     textColor: {
+      type: Object,
+      required: true
+    },
+    headingText: {
       type: Object,
       required: true
     }
