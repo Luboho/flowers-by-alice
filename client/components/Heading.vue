@@ -1,11 +1,11 @@
 <template>
-  <div class="relative top-12 md:top-20 overflow-hidden">
+  <div class="bg-image relative top-12 md:top-20 overflow-hidden">
 
     <img class="relative z-10" :src="[smallScreen ? bgImage.sm : bgImage.lg]" alt="">
-    <div class="z-20 w-3/5 lg:w-2/5 absolute top-48px sm:top-64px mx-24px sm:mx-64px">
-      <h2 class="" :class="textColor.h2">{{ headingText.title }}</h2>
-      <p class=" mt-5 smallScreen:mt-12 sm:mt-18 leading-tight sm:leading-relaxed"
-         :class="textColor.paragraph"> {{ headingText.text }}</p>
+    <div class=" z-20 w-3/5 lg:w-2/5 absolute top-48px sm:top-64px mx-24px sm:mx-64px">
+      <h2 class="" :class="headingText.h2Color">{{ headingText.title }}</h2>
+      <p class="mt-5 smallScreen:mt-12 sm:mt-18 leading-tight sm:leading-relaxed"
+         :class="headingText.textColor"> {{ headingText.text }}</p>
     </div>
   </div>
 </template>
@@ -17,10 +17,6 @@ export default {
     bgImage: {
       type: Object,
       required: true,
-    },
-    textColor: {
-      type: Object,
-      required: true
     },
     headingText: {
       type: Object,
@@ -79,5 +75,18 @@ export default {
 </script>
 
 <style scoped>
+  /* .bg-image {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-image: url('~/assets/images/headers/wedding-header.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  mask-image: url('~/assets/images/masks/header-mask.svg');
+  mask-size: 100vmin;
+  mask-repeat: no-repeat;
+  } */
 
 </style>

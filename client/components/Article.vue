@@ -1,9 +1,12 @@
 <template>
-  <div class="pt-28 sm:pt-20 md:pt-64px max-w-1024px h-auto">
+  <div class="relative z-40 pt-12 sm:pt-20 md:pt-64px max-w-1800px h-auto"
+       :class="bgColor">
     <div class="mx-24px md:mx-64px">
       <div v-for="(article, index) in articles"  :key="index" class="border-b border-opacity-30 flex overflow-x-hidden py-10" >
         <div class="">
-          <img class="w-full h-auto sm:w-1/2 mb-3" :class="[ numIsEven(index) ? 'float-right' : 'float-left']" :src="article.url" alt="">
+          <img class="image-mask w-full h-auto sm:w-1/2 mb-3"
+               :class="[ numIsEven(index) ? 'float-right' : 'float-left']"
+               :src="article.url" alt="">
           <div>
             <h2 class="mb-3">{{ article.title }}</h2>
             <p class="block text-justify">{{ article.paragraph}} </p>
@@ -17,29 +20,17 @@
 <script>
 export default {
   name: "Article",
+  props: {
+    bgColor: {
+      type: String,
+      required: true
+    },
+    articles: {
+      type: Array,
+      required: true
+    }
+  },
 
-  data: () => ({
-    articles: [
-      {
-        category: 'wedding',
-        title: 'LOrem Ipsum Dolor',
-        url: '/weddings/wedding-1-600x750px.jpg',
-        paragraph: 'us, cum aspernatur neque ipsum, ullam eos ex taque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
-      },
-      {
-        category: 'funeral',
-        title: 'LOrem Ipsum Dolor',
-        url: '/weddings/wedding-1-600x750px.jpg',
-        paragraph: 'us, cum aspernatur nSeque ipsum, ullam eos ex iluptatem commodim aspernatur neque ipsum, ullam eos ex itaque o obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
-      },
-      {
-        category: 'occasion',
-        title: 'LOrem Ipsum Dolor',
-        url: '/weddings/wedding-1-600x750px.jpg',
-        paragraph: 'us, cum aspernatur neque ipsum, ullam im aspeitaque obcaecati, obcaeca itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
-      }
-    ]
-  }),
   methods: {
     numIsEven(index) {
       if(index % 2 === 0 ) {
@@ -54,5 +45,17 @@ export default {
 </script>
 
 <style>
+.image-mask {
+  /* width: 50vw;
+  height: 50vh;
+  position: relative;
+  background-image: url('~/assets/images/headers/funeral-1.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat; */
 
+  mask-image: url('~/assets/images/masks/3.svg');
+  mask-size: 100vmin;
+  mask-repeat: no-repeat;
+  }
 </style>

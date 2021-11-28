@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@yeger/vue2-masonry-wall": "^2.0.8",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.8",
-    "vue-cool-lightbox": "^2.7.4"
+    "vue-cool-lightbox": "^2.7.4",
+    "vue-masonry-wall": "^0.3.2"
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.4.0",

@@ -1,5 +1,8 @@
 <template>
-    <div class="ml-auto mr-auto max-w-1024px min-w-smallScreen">
+    <div class="z-20 ml-auto mr-auto max-w-1800px min-w-smallScreen">
+      <div class="relative w-screen z-10">
+          <img class="object-contain w-1/3 sm:w-20 absolute z-10 right-10 md:right-32" src="~/assets/images/stripe.svg" alt="" />
+      </div>
       <Navbar />
         <Nuxt />
       <Footer />

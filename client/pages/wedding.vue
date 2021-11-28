@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="relative">
-        <Heading :bgImage="bgImage" :textColor="textColor" :headingText="headingText" />
+        <Heading :bgImage="bgImage" :headingText="headingText" />
     </div>
-    <Article />
+    <Article :articles="articles" :bgColor="bgColor"  />
     <Filtering :items="items" :notPaginatedItems="notPaginatedItems" />
     <ImgGallery :items="items" />
 
@@ -22,7 +22,7 @@ import ImgGallery from '../components/ImgGallery.vue'
 import Pagination from './../components/Pagination.vue'
 
 export default {
-  name: "Index",
+  name: "Wedding",
   components: {
     Heading,
     Article,
@@ -32,18 +32,34 @@ export default {
   },
   data: () => ({
     bgImage: {
-      sm: "/occasions/occasions-header-bg-sm.jpg",
-      lg: "/occasions/occasions-header-bg-lg.jpg",
+      sm: "/weddings/wedding-header-bg-sm.jpg",
+      lg: "/weddings/wedding-header-bg-lg.jpg",
     },
-    textColor: {
-      h2: "",
-      paragraph: "text-gray-500"
-    }, // TAilwind v-bind :class format
     headingText: {
+      h2Color: "",  // Tailwind format
+      textColor: "text-gray-900",
       title: "Lorem Ipsum Dolor Natus cum aspernatur",
       text: "Jatus! Natus, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repellendus tenetur!"
     },
-      index: null,
+    index: null,
+    bgColor: "",
+    articles: [
+      {
+        title: 'Vestibulum eget lorem ac lorem posuere molestie eu sed nisl. Aenean fermentum',
+        url: '/weddings/wedding-1.jpg',
+        paragraph: 'Quisque pretium ac leo in tempus. Sed in nunc non dolor congue pretium. Praesent vestibulum, nunc ut ultricies pretium Quisque pretium ac leo in tempus. Sed in nunc non dolor congue pretium. Praesent vestibulum, nunc ut ultricies pretium, odio est pulvinar felis, et volutpat metus lectus sed leo.Quisque pretium ac leo in tempus. Sed in nunc non dolor congue pretium. Praesent vestibulum, nunc ut ultricies pretium, odio est pulvinar felis, et volutpat metus lectus sed leo., odio est pulvinar felis, et volutpat metus lectus sed leo.'
+      },
+      {
+        title: 'Phasellus aliquam leo non lorem pulvinar fermentum',
+        url: '/weddings/wedding-2.jpg',
+        paragraph: 'Maecenas a felis at massa euismod facilisis. Quisque pretium ac leo in tempus. Sed in nunc non dolor congue pretium. Praesent vestibulum, nunc ut ultricies pretium, odio est pulvinar felis, et volutpat metus lectus sed leo. Integer mollis neque ut felis maximus lobortis. Donec tincidunt facilisis felis, Quisque pretium ac leo in tempus. Sed in nunc non dolor congue pretium. Praesent vestibulum, nunc ut ultricies pretium, odio est pulvinar felis, et volutpat metus lectus sed leo.Quisque pretium ac leo in tempus. Sed in nunc non dolor congue pretium. Praesent vestibulum, nunc ut ultricies pretium, odio est pulvinar felis, et volutpat metus lectus sed leo. non ornare sapien convallis sit amet. Aenean viverra nibh nunc.'
+      },
+      {
+        title: 'Phasellus aliquam leo non lorem pulvinar fermentum',
+        url: '/weddings/wedding-3.jpg',
+        paragraph: 'Aenean viverra nibh nunc. Sed eu placerat odio. Duis condimentum sollicitudin mollis. Nunc eget nibh et risus tincidunt imperdiet. Cras quis luctus libero. Vestibulum eget rutrum sapien, et vulputate enim. Vivamus volutpat ligula suscipit quam sagittis cursus vel at leo. Nullam volutpat, felis nec posuere egestas, ante ligula posuere mauris, sit amet malesuada odio ligula pretium tellus.'
+      },
+    ]
   }),
 
   async fetch() {

@@ -1,6 +1,6 @@
 <template>
   <div class="mx-0 h-auto mt-32">
-    <div class="max-w-1024px m-24px sm:m-64px">
+    <div class="max-w-1800px m-24px sm:m-64px">
       <!-- Header -->
       <h1>Contact</h1>
       <p>

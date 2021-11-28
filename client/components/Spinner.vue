@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-screen h-100 items-center justify-center">
+  <div class="flex w-screen h-150 items-center justify-center">
     <div v-if="spin">
         <div class="spring-spinner relative">
           <div class="spring-spinner-part top">

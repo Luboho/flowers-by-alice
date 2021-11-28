@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="relative">
-        <Heading :bgImage="bgImage" :textColor="textColor" :headingText="headingText" />
+        <Heading :bgImage="bgImage" :headingText="headingText" />
     </div>
-    <Article />
+    <Article  :articles="articles" :bgColor="bgColor" />
     <Filtering :items="items" :notPaginatedItems="notPaginatedItems" />
     <ImgGallery :items="items" />
 
@@ -35,15 +35,26 @@ export default {
       sm: "/occasions/occasions-header-bg-sm.jpg",
       lg: "/occasions/occasions-header-bg-lg.jpg",
     },
-    textColor: {
-      h2: "",
-      paragraph: "text-gray-500"
-    }, // TAilwind v-bind :class format
     headingText: {
+      h2Color: "",  // Tailwind format
+      textColor: "text-gray-500",
       title: "Lorem Ipsum Dolor Natus cum aspernatur",
       text: "Batus! Natus, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repellendus tenetur!"
     },
-      index: null,
+    index: null,
+    bgColor: "",
+    articles: [
+      {
+        title: 'Vestibulum eget lorem ac lorem posuere molestie eu sed nisl. Aenean fermentum',
+        // url: '/occasions/occasion-1.jpg',
+        paragraph: 'us, cum aspernatur neque ipsum, ullam eos ex ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum,  veniam architecto repel'
+      },
+      {
+        title: 'Phasellus aliquam leo non lorem pulvinar fermentum',
+        // url: '/occasions/occasion-2.jpg',
+        paragraph: 'us, cum aspernatur nSeque ipsum, ullam eos ex iluptatem commodim aspernatur neque ipsum, ullam eos ex itaque o obcaecati,  voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
+      },
+    ]
   }),
 
   async fetch() {
