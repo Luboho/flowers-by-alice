@@ -1,7 +1,7 @@
 <template>
 <transition name="fade">
 
-  <div v-show="scrollNav" class="relative z-40">
+  <div v-show="scrollNav" class="relative z-50">
   <nav id="nav" class="w-full block mx-auto left-0 bg-lightPink top-0 fixed h-20 p-6 shadow-lg ease-in-out transform transition-all duration-1000"
                 :class="scrollNav ? 'translate-y-0' : '-translate-y-full'">
     <div class="flex align-items-center justify-between mx-auto max-w-1800px">
@@ -35,7 +35,7 @@
           <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium
                                 transition duration-250 ease-in-out"
               @mouseover="submenu = true" @mouseleave="submenu = false">
-              <div class="transition duration-300 ease-in-out transform active:scale-75">
+              <div class="transition duration-300 ease-in-out transform active:scale-75 cursor-pointer">
                 <nuxt-link class=""
                           :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/' }"
                           to="/">Occassions

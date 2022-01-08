@@ -22,6 +22,7 @@ export default {
         spin: state => state.spinner.spin,
     })
   },
+
 }
 </script>
 

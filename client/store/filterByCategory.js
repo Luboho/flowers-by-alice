@@ -1,5 +1,5 @@
 export const state = () => ({
-  filterByCategory: []
+  filterByCategory: 'all'
 })
 
 export const mutations = {
@@ -11,9 +11,8 @@ export const mutations = {
 export const actions = {
   setCategory({commit}, category) {
     this.dispatch('spinner/setSpinner', true, { root: true });
-    this.dispatch('images/setLoaded', {bool: false}, { root: true })
+    // this.dispatch('images/setLoaded', false, { root: true })
     commit('SET_CATEGORY', category)
-    this.dispatch('spinner/setSpinner', false, { root: true});
-
+    // this.dispatch('spinner/setSpinner', false, { root: true});
   }
 }

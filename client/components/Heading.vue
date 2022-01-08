@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-image relative top-12 md:top-20 overflow-hidden">
+  <div class="relative" :class="headingText.bgColor">
 
-    <img class="relative z-10" :src="[smallScreen ? bgImage.sm : bgImage.lg]" alt="">
-    <div class=" z-20 w-3/5 lg:w-2/5 absolute top-48px sm:top-64px mx-24px sm:mx-64px">
-      <h2 class="" :class="headingText.h2Color">{{ headingText.title }}</h2>
+    <!-- <img class="relative z-10" :src="[smallScreen ? bgImage.sm : bgImage.lg]" alt=""> -->
+    <div class=" z-20 mx-24px sm:mx-64px pt-28px md:pt-32 overflow-hidden">
+      <h2 class="text-md" :class="headingText.h2Color">{{ headingText.title }}</h2>
       <p class="mt-5 smallScreen:mt-12 sm:mt-18 leading-tight sm:leading-relaxed"
          :class="headingText.textColor"> {{ headingText.text }}</p>
     </div>
@@ -14,10 +14,10 @@
 export default {
   name: "Heading",
   props: {
-    bgImage: {
-      type: Object,
-      required: true,
-    },
+    // bgImage: {
+    //   type: Object,
+    //   required: true,
+    // },
     headingText: {
       type: Object,
       required: true
@@ -29,23 +29,23 @@ export default {
       required: false
     },
 
-    articles: [
-      {
-        title: 'LOrem Ipsum Dolor',
-        url: '/weddings/wedding-1-600x750px.jpg',
-        paragraph: 'us, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
-      },
-      {
-        title: 'LOrem Ipsum Dolor',
-        url: '/weddings/wedding-1-600x750px.jpg',
-        paragraph: 'us, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
-      },
-      {
-        title: 'LOrem Ipsum Dolor',
-        url: '/weddings/wedding-1-600x750px.jpg',
-        paragraph: 'us, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
-      }
-    ]
+    // articles: [
+    //   {
+    //     title: 'LOrem Ipsum Dolor',
+    //     url: '/weddings/wedding-1-600x750px.jpg',
+    //     paragraph: 'us, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
+    //   },
+    //   {
+    //     title: 'LOrem Ipsum Dolor',
+    //     url: '/weddings/wedding-1-600x750px.jpg',
+    //     paragraph: 'us, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
+    //   },
+    //   {
+    //     title: 'LOrem Ipsum Dolor',
+    //     url: '/weddings/wedding-1-600x750px.jpg',
+    //     paragraph: 'us, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
+    //   }
+    // ]
   }),
   computed: {
     currentPath() {

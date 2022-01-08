@@ -13,13 +13,15 @@ class ImageController extends Controller
     public function index(Image $image, Request $request) {
         $category = request('category');
         $page = intval($request->input('page'));
+        // $limit = intval($request->input('limit'));
+
 
         // Get All Items | Paginated
         if($request->input('category') == 'all') {
-            $images = Image::select('*')->paginate(12, ['*'], 'page', $page);
+            $images = Image::select('*')->paginate(18, ['*'], 'page', $page);
         } else {
         // Get Items by Category | Paginated
-            $images = Image::select('*')->where('category', $category)->paginate(12, ['*'], 'page', $page);
+            $images = Image::select('*')->where('category', $category)->paginate(18, ['*'], 'page', $page);
         }
 
         if($images) {

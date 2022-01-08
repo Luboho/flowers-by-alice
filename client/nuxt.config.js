@@ -17,7 +17,7 @@ export default {
       { rel: "stylesheet", href: 'https://fonts.googleapis.com/css2?family=Overlock+SC&family=Overlock:wght@400;700;900&family=Roboto:wght@300;400;500;700;900&display=swap'},
       { rel: "preconnect", href: 'https://fonts.gstatic.com crossorigin'},
       { rel: "preconnect", href: 'https://fonts.googleapis.com'}
-    ]
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -29,7 +29,10 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/scroll-detect.js', mode: 'client'},
-    // { src: '~/plugins/coolLightBox.client.js', mode: 'client'}
+    { src: '~/plugins/coolLightBox.client.js', mode: 'client'},
+    { src: '~/plugins/masonry-wall.client.js', mode: 'client', ssr: false},
+    { src: '~/plugins/vue-masonry.client.js', mode: 'client'},
+    { src: '~/plugins/observe-visibility.js', ssr: false},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -3,10 +3,11 @@
     <div class="flex justify-center sm:justify-start place-self-center space-x-1 flex-wrap font-overlockSC text-sm">
 
       <ul  v-for="(category, index) in categories" :key="index"
-           class="text-aliceBlue cursor-pointer">
-        <li class="px-3 py-2 my-1 bg-gray-100 bg-opacity-50 tracking-wide rounded-sm transition duration-250 duration-300 ease-in-out transform active:scale-75"
-            :class="{'bg-alicePink text-white font-semibold cursor-text' : selected(category)}"
-            @click="filterOut(category)">{{ category }}
+           class="text-aliceBlue">
+        <li class="px-3 py-2 my-1 bg-gray-100 cursor-pointer bg-opacity-50 tracking-wide rounded-sm transition duration-250 duration-300 ease-in-out transform active:scale-75"
+            :class="{'bg-alicePink text-white font-semibold cursor-text isDisabled' : selected(category)}"
+            @click="filterOut(category)"
+            >{{ category }}
       </li>
       </ul>
     </div>
@@ -62,9 +63,10 @@ export default {
   },
   methods: {
     filterOut(category) {
-      this.$store.dispatch('filterByCategory/setCategory', {category: category}); // Change Active Category
+      this.$emit('update-limit', 12);
+      this.$store.dispatch('filterByCategory/setCategory', category); // Change Active Category
       // this.$store.dispatch('images/setLoaded', {bool: false}); // Transition onLoad Images
-      this.$store.dispatch('images/getList', { pageNumber: 0, category: category}); //
+      this.$store.dispatch('images/getList', { pageNumber: 0, category: category, qty:12}); //
     },
     unduplicate(arr) {
       if(arr !== undefined) {
@@ -94,5 +96,7 @@ export default {
 </script>
 
 <style>
-
+.isDisabled {
+    pointer-events: none;
+  }
 </style>

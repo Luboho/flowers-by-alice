@@ -17,6 +17,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    "vue/valid-v-slot": "off",
     "vue/attribute-hyphenation": [0],
     "no-console": [0],
     "object-shorthand": 0

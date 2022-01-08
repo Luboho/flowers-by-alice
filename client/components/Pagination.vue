@@ -58,7 +58,7 @@ import {mapState} from 'vuex'
 
   methods: {
     paginatePage(pageNumber) {
-      this.$store.dispatch(this.store + '/getList', { pageNumber: pageNumber, category: this.filterByCategory});
+      this.$store.dispatch(this.store + '/getList', { page: pageNumber, category: this.filterByCategory});
       this.$store.dispatch('images/setLoaded', {bool: false});
       this.scrollTo();
       // this.$store.dispatch('spinner/setSpinner', true);
