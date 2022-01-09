@@ -20,7 +20,8 @@ class SubscriberController extends Controller
             Mail::to(env('MAIL_FROM_ADDRESS'))->send(new NewSubscribe($subscribersEmail));
 
             return response()
-                    ->json(['data' => $newSubsriber])
+                    // ->json(['data' => $newSubsriber])
+                    ->json(['data' => ['success' => 'Thank you for your subsription.' ]])
                     ->setStatusCode(Response::HTTP_CREATED);
         } else {
             return response()

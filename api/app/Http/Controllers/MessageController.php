@@ -30,7 +30,7 @@ class MessageController extends Controller
                     ->setStatusCode(Response::HTTP_CREATED);
         } else {
             return response()
-                ->json(['data' => ['error' => 'Správu sa nepodarilo odoslať. Prosím skúste to neskôr.']])
+                ->json(['data' => ['error' => 'Message was not sent, please try it again.']])
                 ->setStatusCode(Response::HTTP_BAD_REQUEST);
         }
     }
