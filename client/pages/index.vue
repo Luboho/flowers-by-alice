@@ -1,19 +1,19 @@
 <template>
   <div>
     <div class="relative">
-        <Heading :headingText="headingText" />
+        <Heading :headingText="headingText" :bgImage="bgImage" />
     </div>
 
     <div v-for="(article, index) in articles" :key="index" class="flex flex-col">
       <Article :bgColor="bgColor" :article="article" />
     </div>
-
-    <ImgGallery />
-
-    <div v-if="items" v-show="paginationTotal > 10">
-        <Pagination store="images" collection="items" :filterByCategory="filterByCategory" />
+    <div class="max-w-1800px">
+      <ImgGallery />
     </div>
 
+    <div v-if="items" v-show="paginationTotal > 18">
+        <Pagination store="images" collection="items" :filterByCategory="filterByCategory" />
+    </div>
   </div>
 </template>
 
@@ -31,23 +31,20 @@ export default {
     ImgGallery,
   },
   data: () => ({
-    // bgImage: {
-    //   sm: "/occasions/occasions-header-bg-sm.jpg",
-    //   lg: "/occasions/occasions-header-bg-lg.jpg",
-    // },
     headingText: {
-      h2Color: "",  // Tailwind format
-      textColor: "text-gray-500",
+      h2Color: "text-yellow-300",  // Tailwind format
+      textColor: "text-white",
       title: "Lorem Ipsum Dolor Natus cum aspernatur",
       text: "Batus! Natus, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repellendus tenetur!"
     },
+    smallScreen: false,
     page: 0,
     bgColor: "",
     articles: [
       {
         id: 1,
         title: 'Vestibulum eget lorem ac lorem posuere molestie eu sed nisl. Aenean fermentum',
-        url: '/occasions/2.jpg',
+        url: '/occasions/1.jpg',
         paragraph: 'us, cum aspernatur neque ipsum, ullam eos ex ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum,  veniam architecto repel'
       },
       {
@@ -59,7 +56,7 @@ export default {
       {
         id: 3,
         title: 'Phasellus aliquam leo non lorem pulvinar fermentum',
-        url: '/occasions/2.jpg',
+        url: '/occasions/3.jpg',
         paragraph: 'us, cum aspernatur nSeque ipsum, ullam eos ex iluptatem commodim aspernatur neque ipsum, ullam eos ex itaque o obcaecati,  voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodim aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
       },
     ]
@@ -80,6 +77,30 @@ export default {
       lastPage: state => state.images.items.meta.last_page,
       notPaginatedItems: state => state.images.notPaginatedItems.data
     }),
+    bgImage() {
+      if(this.smallScreen) {
+        return "/occasions/header/sm.jpg"
+      } else {
+        return "/occasions/header/lg.jpg"
+      }
+    }
+  },
+  mounted() {
+    if(process.browser) {
+      if (window.innerWidth < 640){
+        this.smallScreen = true;
+      } else {
+        this.smallScreen = false;
+      }
+    }
+
+    window.onresize = () => {
+      if (window.innerWidth < 640){
+        this.smallScreen = true;
+      } else {
+        this.smallScreen = false;
+      }
+    };
   },
   methods: {
     ...mapMutations({

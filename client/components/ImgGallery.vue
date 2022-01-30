@@ -1,6 +1,6 @@
 <template>
-  <div id="gallery" class="w-full mx-auto block mt-6 sm:mt-48px relative" >
-    <div class="mx-24px md:mx-64px max-w-1800px">
+  <div id="gallery" class="w-full mx-auto pb-64px block mt-6 sm:mt-48px relative" >
+    <div class="mx-24px md:mx-64px">
 
         <Filtering :items="items" :notPaginatedItems="notPaginatedItems" @update-limit="updateLimit" />
 
@@ -24,7 +24,7 @@
 
         <!-- Masonry -->
         <!-- Columns of Masonry depends and counted on window.innerWidth. When the div, padding, column width will change the size, Masonry will collapse. -->
-        <div v-else id="wall" class="mt-6 sm:mt-48px mx-auto">
+        <div v-else id="wall" class="mt-6 sm:mt-48px mx-auto" @mouseout="maskOn.id = 0" >
           <masonry-wall
             :items="items"
             :ssr-columns="columns"
@@ -32,15 +32,29 @@
             :padding="1"
           >
             <template #default="{ item }">
-              <article class="card m-1 cursor-pointer transition transform hover:scale-95 duration-300">
-                <transition name="loadMoreImages">
-                  <img
-                    :src="item.url"
-                    class="card-img-top"
-                    @click="initialIndex(item.id)"
-                  />
-                </transition>
-              </article>
+                <article class="relative z-20 card m-1 cursor-pointer transition transform hover:scale-95 duration-300"
+                        >
+                  <transition name="loadMoreImages">
+                    <img
+                      :src="item.url"
+                      class="card-img-top z-20"
+                      @mouseenter="maskIt(item.id)"
+                      @click="initialIndex(item.id)"
+                    />
+                  </transition>
+                <div v-show="maskOn.id === item.id"
+                     class="bg-aliceBrown bg-opacity-75 w-full h-12 top-0 left-0 right-0 bottom-0 absolute z-30"
+                     @click="initialIndex(item.id)"
+                     @mouseenter="maskIt(item.id)"
+                >
+                <div class="flex mt-2 mr-2">
+                    <i class="material-icons text-3xl text-gray-500 text-right w-full hover:text-gray-600 transition transform duration-300 ">
+                      zoom_in
+                    </i>
+                    <p class="whitespace-nowrap text-gray-500 text-sm -ml-4">Enlarge</p>
+                </div>
+                </div>
+                </article>
             </template>
           </masonry-wall>
         <!-- End Of Masonry -->
@@ -89,7 +103,11 @@ export default {
       imgIndex: null,
       limit: 20,
       columns: 3,
-      colWidth: 200
+      colWidth: 200,
+      maskOn: {
+        id: 0,
+        on: false
+      }
   }),
 
   computed: {
@@ -198,6 +216,9 @@ export default {
     updateLimit(data) {
       this.limit = data;
     },
+    maskIt(id) {
+      this.maskOn.id = id;
+    }
   },
 
 
@@ -279,4 +300,5 @@ export default {
 .loadMoreImages-enter-to, .loadMoreImages-leave {
     opacity: 1;
 }
+
 </style>

@@ -2,21 +2,25 @@
 <transition name="fade">
 
   <div v-show="scrollNav" class="relative z-50">
-  <nav id="nav" class="w-full block mx-auto left-0 bg-lightPink top-0 fixed h-20 p-6 shadow-lg ease-in-out transform transition-all duration-1000"
+  <nav id="nav" class="w-full block mx-auto left-0 bg-lightPink top-0 fixed h-20 md:h-36 px-5 py-14 shadow-lg ease-in-out transform transition-all duration-1000"
                 :class="scrollNav ? 'translate-y-0' : '-translate-y-full'">
     <div class="flex align-items-center justify-between mx-auto max-w-1800px">
 
       <!-- Nav logo -->
       <div>
-        <img class="w-36 h-auto -mt-5" src="/logo.png" alt="Flowers by Alice">
+        <nuxt-link class=""
+                   :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/' }"
+                   to="/">
+          <img class="w-48 md:w-60 h-auto -mt-12" src="/logo.png" alt="Flowers by Alice">
+        </nuxt-link>
       </div>
 
       <!-- Mobile toggle / Burger icon -->
-      <div class="md:hidden">
-        <button class="transition duration-300 ease-in-out transform focus:scale-75"
+      <div class="md:hidden -mt-4 md:-mt-0">
+        <button class="mb-10 transition duration-300 ease-in-out transform focus:scale-75"
                 @click="drawer">
           <svg
-            class="h-10 w-10 fill-current text-darkPurple"
+            class="h-12 w-12 fill-current text-darkPurple"
             fill="none" stroke-linecap="round"
             stroke-linejoin="round" stroke-width="2"
             viewBox="0 0 32 40" x="0px" y="0px" stroke="currentColor">
@@ -27,10 +31,7 @@
 
       <!-- Navbar -->
       <div class="hidden font-overlockSC md:block">
-        <ul class="flex items-center space-x-6 text-aliceBlue text-lg">
-          <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium transition duration-250 duration-300 ease-in-out transform active:scale-75">
-              <a href="">Latest Events</a>
-          </li>
+        <ul class="flex items-center space-x-6 text-aliceBlue text-xl">
           <!-- Expandable -->
           <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium
                                 transition duration-250 ease-in-out"
@@ -40,7 +41,7 @@
                           :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/' }"
                           to="/">Occassions
                 </nuxt-link>
-                <i class = "absolute top-8 left-8 material-icons">arrow_drop_down</i>
+                <i class = "absolute top-8 left-9 material-icons text-3xl">arrow_drop_down</i>
               </div>
               <transition name="slide">
                 <div v-if="submenu" class="expendable text-aliceBlue absolute px-10 pt-10 pb-5 bg-lightPink bg-opacity-90 text-sm flex flex-col ml-7">
@@ -66,12 +67,15 @@
               </transition>
           </li>
           <!-- End of Expandable -->
+          <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium transition duration-250 duration-300 ease-in-out transform active:scale-75">
+              <a href="#latest">Latest</a>
+          </li>
           <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium transition duration-300  ease-in-out transform active:scale-75">
               <a href="#gallery">Gallery</a>
           </li>
           <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium
                                 transition duration-250 ease-in-out transform active:scale-75">
-              <nuxt-link class=""
+              <nuxt-link class="whitespace-nowrap"
                          :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/home-design' }"
                          to="/home-design">Home Design</nuxt-link>
           </li>
@@ -118,13 +122,6 @@
         </span>
 
         <ul class="divide-y font-overlockSC text-aliceBlue">
-          <li>
-            <a href="#latest" class="my-4 inline-block hover:text-alicePink hover:font-bold font-medium
-                                transition duration-250 ease-in-out transform active:scale-75"
-              @click="isOpen = false" >
-              Latest events
-            </a>
-          </li>
           <!-- Expandable -->
           <li @mouseover="submenu = true" @mouseleave="submenu = false">
               <div class="flex items-center" @click="isOpen = false">
@@ -161,6 +158,13 @@
               </transition>
           </li>
           <!-- End of Expandable -->
+          <li>
+            <a href="#latest" class="my-4 inline-block hover:text-alicePink hover:font-bold font-medium
+                                transition duration-250 ease-in-out transform active:scale-75"
+              @click="isOpen = false" >
+              Latest events
+            </a>
+          </li>
           <li>
             <a href="#gallery" class="my-4 inline-block hover:text-alicePink hover:font-bold font-medium
                                 transition duration-250 ease-in-out transform active:scale-75"

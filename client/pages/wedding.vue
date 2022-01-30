@@ -1,16 +1,17 @@
 <template>
   <div>
     <div class="relative">
-        <Heading :headingText="headingText" />
+        <Heading :headingText="headingText" :bgImage="bgImage" />
     </div>
 
     <div v-for="(article, index) in articles" :key="index" class="flex flex-col">
       <Article :bgColor="bgColor" :article="article" />
     </div>
+    <div class="max-w-1800px">
+      <ImgGallery />
+    </div>
 
-    <ImgGallery />
-
-    <div v-if="items" v-show="paginationTotal > 10">
+    <div v-if="items" v-show="paginationTotal > 18">
         <Pagination store="images" collection="items" :filterByCategory="filterByCategory" />
     </div>
   </div>
@@ -30,16 +31,13 @@ export default {
     ImgGallery,
   },
   data: () => ({
-    // bgImage: {
-    //   sm: "/weddings/wedding-header-bg-sm.jpg",
-    //   lg: "/weddings/wedding-header-bg-lg.jpg",
-    // },
     headingText: {
-      h2Color: "",  // Tailwind format
-      textColor: "text-gray-900",
+      h2Color: "text-white",  // Tailwind format
+      textColor: "text-white",
       title: "Lorem Ipsum Dolor Natus cum aspernatur",
       text: "Jatus! Natus, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repellendus tenetur!"
     },
+    smallScreen: false,
     bgColor: "",
     articles: [
       {
@@ -73,9 +71,33 @@ export default {
       paginationTotal: state => state.images.items.meta.total,
       items: state => state.images.items.data,
       notPaginatedItems: state => state.images.notPaginatedItems.data
-    })
+    }),
+    bgImage() {
+      if(this.smallScreen) {
+        return "/weddings/header/sm.jpg"
+      } else {
+        return "/weddings/header/lg.jpg"
+      }
+    }
   },
 
+  mounted() {
+    if(process.browser) {
+      if (window.innerWidth < 640){
+        this.smallScreen = true;
+      } else {
+        this.smallScreen = false;
+      }
+    }
+
+    window.onresize = () => {
+      if (window.innerWidth < 640){
+        this.smallScreen = true;
+      } else {
+        this.smallScreen = false;
+      }
+    };
+  },
 }
 </script>
 

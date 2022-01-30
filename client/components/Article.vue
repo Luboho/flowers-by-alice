@@ -1,13 +1,13 @@
 <template>
-  <div class="relative z-40 pt-12 sm:pt-20 md:pt-64px max-w-1800px h-auto"
+  <div class="relative z-40 py-12 sm:py-20 md:py-64px max-w-1800px h-auto"
        :class="bgColor">
     <div class="mx-24px md:mx-64px">
-      <img class="sm:w-2/3 p-2"
+      <img class="sm:w-3/4 md:w-1/2 lg:1/3 px-3 mb-3 sm:-py-2"
           :class="[ numIsEven(article.id) ? 'float-right' : 'float-left']"
           :style="{ maskImage: 'url(' + shuffledMask + ')', maskSize: '100%', maskOrigin: 'content-box', objectFit: 'fill', maskRepeat: 'no-repeat' }"
           :src="article.url" alt=""
       >
-      <div>
+      <div class="">
         <h2 class="mb-3">{{ article.title }}</h2>
         <p class="block text-justify">{{ article.paragraph}} </p>
       </div>
@@ -43,12 +43,9 @@ export default {
 
   computed: {
     shuffledMask() {
-      // const mask = this.arrOfMasks.sort((a,b) => 0.5 - Math.random());
       const mask = this.arrOfMasks[Math.floor(Math.random()*this.arrOfMasks.length)];
 
-        // const mask = this.arrOfMasks.filter(item => item.id === this.article.id)
-
-        return mask;
+      return mask;
     }
   },
 

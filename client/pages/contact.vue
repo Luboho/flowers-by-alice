@@ -19,7 +19,6 @@
         Alice
       </p>
     <!-- End of Header -->
-
     <!-- Contact Form -->
     <div class="mt-48px block mx-auto">
         <h1>Contact Form</h1>
@@ -193,7 +192,7 @@ export default {
                     email: this.form.email,
                     phone: this.form.phone,
                     message: this.form.message
-                }).then(() => console.log)
+                }).then((resp) => this.$store.dispatch('uiMessages/getUiMessage', resp.data))
                   .then(() => this.$router.replace({path: '/'}));
             } catch (e) {
                 if(e.response.data.errors) {

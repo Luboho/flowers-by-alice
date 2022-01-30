@@ -1,18 +1,19 @@
 <template>
-  <div>
+  <div class="bg-aliceBrown">
     <div class="relative">
-        <Heading :headingText="headingText" />
+        <Heading :headingText="headingText" :bgImage="bgImage" />
     </div>
 
     <div v-for="(article, index) in articles" :key="index" class="flex flex-col">
       <Article :bgColor="bgColor" :article="article" />
     </div>
 
-    <ImgGallery :items="items" />
+    <ImgGallery />
 
-    <div v-if="items" v-show="paginationTotal > 10">
+    <div v-if="items" v-show="paginationTotal > 18">
         <Pagination store="images" collection="items" :filterByCategory="filterByCategory" />
     </div>
+
   </div>
 </template>
 
@@ -29,17 +30,15 @@ export default {
     Article,
     ImgGallery,
   },
+
   data: () => ({
-    // bgImage: {
-    //   sm: "/home-design/home-design-header-bg-sm.jpg",
-    //   lg: "/home-design/home-design-header-lg.jpg",
-    // },
+    smallScreen: false,
     headingText: {
       bgColor: "bg-aliceBrown",
       h2Color: "", // Taillwind format
       textColor: "text-gray-500",
-      title: "Ut faucibus eu risus eu pretium. Morbi ante nunc, fermentum sit amet nisi vulputate",
-      text: "Aenean viverra nibh nunc. Sed eu placerat odio. Duis condimentum sollicitudin mollis. Nunc eget nibh et risus tincidunt imperdiet. Cras quis luctus libero. Vestibulum eget rutrum sapien, et vulputate enim. Vivamus volutpat ligula suscipit quam sagittis cursus vel at leo. Nullam volutpat, felis nec posuere egestas, ante ligula posuere mauris, sit amet malesuada odio ligula pretium tellus."
+      title: "Ut faucibus eu risus fermentum sit amet nisi vulputate",
+      text: "Aenean viverra nibh nunc. Sed eu placerat odio.",
     },
     bgColor: "bg-aliceBrown",
     limit: 12,
@@ -63,21 +62,45 @@ export default {
         paragraph: 'Aenean viverra nibh nunc. Sed eu placerat odio. Duis condimentum sollicitudin mollis. Nunc eget nibh et risus tincidunt imperdiet. Cras quis luctus libero. Vestibulum eget rutrum sapien, et vulputate enim. Vivamus volutpat ligula suscipit quam sagittis cursus vel at leo. Nullam volutpat, felis nec posuere egestas, ante ligula posuere mauris, sit amet malesuada odio ligula pretium tellus.'
       },
     ]
-  }),
+  }) ,
 
   async fetch() {
       await this.$store.dispatch('images/getList', { pageNumber: 0, category: this.filterByCategory, qty: this.limit});
       await this.$store.dispatch('images/getNotPaginatedList')
   },
+
   computed: {
     ...mapState({
       filterByCategory: state => state.filterByCategory.filterByCategory,
       paginationTotal: state => state.images.items.meta.total,
       items: state => state.images.items.data,
       notPaginatedItems: state => state.images.notPaginatedItems.data
-    })
+    }),
+    bgImage() {
+      if(this.smallScreen) {
+        return "/home-design/header/sm.jpg"
+      } else {
+        return "/home-design/header/lg.jpg"
+      }
+    }
   },
+  mounted() {
+    if(process.browser) {
+      if (window.innerWidth < 640){
+        this.smallScreen = true;
+      } else {
+        this.smallScreen = false;
+      }
+    }
 
+    window.onresize = () => {
+      if (window.innerWidth < 640){
+        this.smallScreen = true;
+      } else {
+        this.smallScreen = false;
+      }
+    };
+  },
 }
 </script>
 

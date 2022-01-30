@@ -53,9 +53,9 @@ export default {
     async submit(e) {
       try {
         await this.$axios.$get('sanctum/csrf-cookie');
-         const resp = await this.$axios.post('/api/subscribe', {
+        await this.$axios.post('/api/subscribe', {
           email: this.form.email
-        }).then(() => console.log(resp))
+        }).then((resp) => this.$store.dispatch('uiMessages/getUiMessage', resp.data))
       } catch (e) {
         if(e.response.data.errors) {
           this.errors = e.response.data.errors;

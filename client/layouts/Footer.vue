@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-1800px h-auto bg-gray-200 mt-48px pt-24px md:pt-64px flex-col">
+  <div class="max-w-1800px h-auto bg-gray-200 pt-64px flex-col">
     <div class="mx-24px md:mx-64px">
 
       <div>
@@ -8,9 +8,6 @@
       <!-- Nav -->
         <div class="mt-48px font-overlockSC">
           <ul class="flex items-center flex-wrap justify-center space-x-6 text-aliceBlue text-sm">
-            <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium transition duration-250 duration-300 ease-in-out transform active:scale-75">
-                <a class="whitespace-nowrap" href="">Latest Events</a>
-            </li>
             <!-- Expandable -->
             <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium
                                   transition duration-250 ease-in-out"
@@ -20,10 +17,10 @@
                             :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/' }"
                             to="/">Occassions
                   </nuxt-link>
-                  <i class = "material-icons">arrow_drop_down</i>
+                  <i class = "material-icons cursor-pointer">arrow_drop_down</i>
                 </div>
                 <transition name="slide">
-                  <div v-if="submenu" class="expendable text-aliceBlue absolute px-10 pt-10 pb-5 bg-lightPink bg-opacity-90 text-sm flex flex-col ml-7">
+                  <div v-if="submenu" class="expendable text-aliceBlue absolute px-10 pt-10 pb-5 bg-gray-200 bg-opacity-90 text-sm flex flex-col ml-7">
                     <div class="transition hover:text-alicePink hover:font-bold font-medium duration-300 ease-in-out transform active:scale-75">
                       <nuxt-link to="/wedding" class="mb-2"
                                 :class="{ 'border-b-2 border-alicePink text-alicePink': currentPath == '/wedding' }"
@@ -46,6 +43,9 @@
                 </transition>
             </li>
             <!-- End of Expandable -->
+            <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium transition duration-250 duration-300 ease-in-out transform active:scale-75">
+                <a class="whitespace-nowrap" href="">Latest Events</a>
+            </li>
             <li class="leading-10 -mt-1 hover:text-alicePink hover:font-bold font-medium transition duration-300  ease-in-out transform active:scale-75">
                 <a href="#gallery">Gallery</a>
             </li>

@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-24px">
+  <div class="mt-24px pb-64px">
     <div class="text-center">
         <v-pagination
           v-model="currentPage"

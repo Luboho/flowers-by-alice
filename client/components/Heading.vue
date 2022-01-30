@@ -1,12 +1,27 @@
 <template>
-  <div class="relative" :class="headingText.bgColor">
+  <div class="relative h-full mb-28" :class="headingText.bgColor">
 
-    <!-- <img class="relative z-10" :src="[smallScreen ? bgImage.sm : bgImage.lg]" alt=""> -->
-    <div class=" z-20 mx-24px sm:mx-64px pt-28px md:pt-32 overflow-hidden">
-      <h2 class="text-md" :class="headingText.h2Color">{{ headingText.title }}</h2>
-      <p class="mt-5 smallScreen:mt-12 sm:mt-18 leading-tight sm:leading-relaxed"
-         :class="headingText.textColor"> {{ headingText.text }}</p>
+
+    <!-- <img src="@/assets/images/back.png" class="w-screen mx-auto" alt=""> -->
+    <!-- <div class="relative w-screen h-screen"> -->
+      <!-- <img id="headBack" src="@/assets/images/middle.png" class="headBack absolute z-10 w-screen h-screen mx-auto" alt=""> -->
+      <!-- <div class="absolute w-screen z-20 bg-black h-screen"></div> -->
+      <!-- <img id="headFront" src="@/assets/images/front.png" class="headFront absolute z-20 w-auto h-screen mx-auto" alt=""> -->
+    <!-- </div> -->
+
+    <div class="">
+      <div class="absolute z-30 overflow-hidden  mx-24px md:mx-64px sm:mt-2">
+        <h2 class="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-bolder text-shadow pt-16 xs:pt-48 sm:pt-12 md:pt-18 lg:pt-48 mt-32" :class="headingText.h2Color">{{ headingText.title }}</h2>
+        <p class="mt-5 text-md sm:text-lg text-shadow smScreen:mt-12 text-shadow sm:mt-18 leading-tight sm:leading-relaxed"
+          :class="headingText.textColor"> {{ headingText.text }}</p>
+      </div>
+      <img class="relative z-20 headBack top-10" :src="bgImage" alt="">
     </div>
+
+    <!-- <div class="relative w-screen h-auto z-30 mx-24px sm:mx-64px overflow-hidden">
+      <div class="absolute">
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -14,39 +29,16 @@
 export default {
   name: "Heading",
   props: {
-    // bgImage: {
-    //   type: Object,
-    //   required: true,
-    // },
+    bgImage: {
+      type: String,
+      required: true,
+    },
     headingText: {
       type: Object,
       required: true
     }
   },
-  data: () => ({
-    smallScreen: {
-      type: Boolean,
-      required: false
-    },
 
-    // articles: [
-    //   {
-    //     title: 'LOrem Ipsum Dolor',
-    //     url: '/weddings/wedding-1-600x750px.jpg',
-    //     paragraph: 'us, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
-    //   },
-    //   {
-    //     title: 'LOrem Ipsum Dolor',
-    //     url: '/weddings/wedding-1-600x750px.jpg',
-    //     paragraph: 'us, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
-    //   },
-    //   {
-    //     title: 'LOrem Ipsum Dolor',
-    //     url: '/weddings/wedding-1-600x750px.jpg',
-    //     paragraph: 'us, cum aspernatur neque ipsum, ullam eos ex itaque obcaecati, voluptatem commodi quod esse mollitia dolore veniam architecto repel'
-    //   }
-    // ]
-  }),
   computed: {
     currentPath() {
       return this.$route.path;
@@ -54,39 +46,26 @@ export default {
   },
 
   mounted() {
-        if(process.browser) {
-          if (window.innerWidth < 768){
-            this.smallScreen = true;
-          } else {
-            this.smallScreen = false;
-          }
-      }
+    this.parallaxHeadBg();
 
-        window.onresize = () => {
-          if (window.innerWidth < 768){
-            this.smallScreen = true;
-          } else {
-            this.smallScreen = false;
-          }
-        };
+  },
+
+  methods: {
+    parallaxHeadBg() {
+         window.addEventListener('scroll', function(e) {
+          const target = document.querySelector('.headBack');
+          const scrolled = window.pageYOffset;
+          const rate = scrolled * -0.5;
+          target.style.transform = 'translate3d(0px,'+rate+'px, 0px)';
+        })
+      }
   },
 
 }
 </script>
 
 <style scoped>
-  /* .bg-image {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  background-image: url('~/assets/images/headers/wedding-header.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  mask-image: url('~/assets/images/masks/header-mask.svg');
-  mask-size: 100vmin;
-  mask-repeat: no-repeat;
-  } */
-
+  .text-shadow {
+    text-shadow: 2px 2px 3px rgb(49, 47, 47);
+  }
 </style>
