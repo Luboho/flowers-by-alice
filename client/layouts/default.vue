@@ -26,17 +26,46 @@ export default {
   components: {
     Navbar,
     Footer,
-    UiMessages
+    UiMessages,
   },
 
   data: () => ({
     direction: true
   }),
   head: {
+    title: "Flowers by Alice - flowers for you, for every occasion",
+      titleTemplate: '%s - Flowers by Alice',
+      meta: [
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'article'
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Flowers by Alice - flowers for you, for every occasion'
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Eaque eius autem facilis omnis dignissimos officia eligendi unde beatae laudantium, cupiditate nam molestiae numquam perspiciatis veniam '
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${process.env.baseUrl +'/logo.png'}`
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: `${process.env.baseUrl +'/logo.png'}`
+        },
+      ],
     script: [
       // Supported since Nuxt 1.0
       { src: 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0' ,defer: true,  nonce: 'GSJ4A8LJ'}
-    ]
+    ],
   },
 
   computed: {

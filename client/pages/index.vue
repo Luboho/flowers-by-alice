@@ -10,7 +10,8 @@
     <div class="max-w-1800px">
       <ImgGallery />
     </div>
-
+    <i class="fa-facebook-f"></i>
+    <SocialSharing />
     <div v-if="items" v-show="paginationTotal > 18">
         <Pagination store="images" collection="items" :filterByCategory="filterByCategory" />
     </div>
@@ -22,6 +23,7 @@ import { mapState, mapActions, mapMutations } from 'vuex'
 import Heading from '../components/Heading.vue'
 import Article from '../components/Article.vue'
 import ImgGallery from '../components/ImgGallery.vue'
+import SocialSharing from './../components/SocialSharing.vue'
 
 export default {
   name: "Index",
@@ -29,6 +31,7 @@ export default {
     Heading,
     Article,
     ImgGallery,
+    SocialSharing
   },
   data: () => ({
     headingText: {
@@ -66,7 +69,42 @@ export default {
       await this.$store.dispatch('images/getList', { page: 0, category: this.filterByCategory});
       await this.$store.dispatch('images/getNotPaginatedList')
   },
-
+    head: {
+    title: "Flowers by Alice - flowers for you, for every occasion",
+    meta: [
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: `${process.env.baseUrl}`
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Flowers here, Flowers there, Flowers everywhere.'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'Get to know all about Flowers by Alice and its characters in tiny bits of info.'
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: `${process.env.baseUrl +'/logo.png'}`
+      },
+      {
+        hid: 'og:image:secure_url',
+        property: 'og:image:secure_url',
+        content: `${process.env.baseUrl +'/logo.png'}`
+      },
+      {
+        hid: 'og:image:alt',
+        property: 'og:image:alt',
+        content: 'Flowers by Alice'
+      }
+    ]
+  },
   computed: {
     ...mapState({
       spin: state => state.spinner.spin,

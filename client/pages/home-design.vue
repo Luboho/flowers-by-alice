@@ -68,7 +68,42 @@ export default {
       await this.$store.dispatch('images/getList', { pageNumber: 0, category: this.filterByCategory, qty: this.limit});
       await this.$store.dispatch('images/getNotPaginatedList')
   },
-
+    head: {
+    title: "Flowers by Alice - Home design by Alice.",
+    meta: [
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: `${process.env.baseUrl}`
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Flowers here, Flowers there, Flowers everywhere.'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'Get to know all about Flowers by Alice and its characters in tiny bits of info.'
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: `${process.env.baseUrl +'/logo.png'}`
+      },
+      {
+        hid: 'og:image:secure_url',
+        property: 'og:image:secure_url',
+        content: `${process.env.baseUrl +'/logo.png'}`
+      },
+      {
+        hid: 'og:image:alt',
+        property: 'og:image:alt',
+        content: 'Flowers by Alice'
+      }
+    ]
+  },
   computed: {
     ...mapState({
       filterByCategory: state => state.filterByCategory.filterByCategory,

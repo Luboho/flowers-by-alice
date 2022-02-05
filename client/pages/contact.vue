@@ -176,6 +176,43 @@ export default {
         errors:[],
     }),
 
+  head: {
+      title: "Please, contact us - Flowers by Alice",
+      meta: [
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${process.env.baseUrl}`
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Flowers here, Flowers there, Flowers everywhere.'
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Get to know all about Flowers by Alice and its characters in tiny bits of info.'
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${process.env.baseUrl +'/logo.png;'}`
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: `${process.env.baseUrl +'/logo.png'}`
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: 'Flowers by Alice'
+        }
+      ]
+    },
+
     methods: {
         async submit(e) {
           if(this.form.email === "" || this.form.email === "") {
