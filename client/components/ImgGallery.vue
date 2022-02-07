@@ -63,11 +63,13 @@
         <!-- End Of Masonry -->
 
           <!-- Receiving Array of Strings -->
-          <CoolLightBox :items="pictures"
-                        :index="imgIndex"
-                        @on-open="showNav(false)"
-                        @close="imgIndex = null">
-          </CoolLightBox>
+          <div v-if="items">
+            <CoolLightBox :items="pictures"
+                          :index="imgIndex"
+                          @on-open="showNav(false)"
+                          @close="imgIndex = null">
+            </CoolLightBox>
+          </div>
 
           <div class="images-wrapper">
             <div
