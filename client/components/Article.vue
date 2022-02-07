@@ -34,7 +34,6 @@ export default {
     arrOfMasks : [
                   require('@/assets/images/masks/1.svg'),
                   require('@/assets/images/masks/2.svg'),
-                  require('@/assets/images/masks/3.svg'),
                   require('@/assets/images/masks/4.svg'),
                   require('@/assets/images/masks/5.svg'),
                   require('@/assets/images/masks/6.svg')

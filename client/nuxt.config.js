@@ -5,6 +5,9 @@ export default {
     htmlAttrs: {
       lang: 'en'
     },
+    env: {
+      baseUrl: process.env.BASE_URL || 'https://www.floressro.nl'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -107,11 +110,12 @@ export default {
     ]
   ],
   vuetify: {
-    customVariables: ['~/assets/variables.scss']
+    customVariables: ['~/assets/styles/variables.scss']
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'http://localhost:8000',
+    // baseURL: 'https://api.floressro.nl',
     credentials: true
   },
 

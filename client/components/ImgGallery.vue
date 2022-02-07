@@ -25,38 +25,41 @@
         <!-- Masonry -->
         <!-- Columns of Masonry depends and counted on window.innerWidth. When the div, padding, column width will change the size, Masonry will collapse. -->
         <div v-else id="wall" class="mt-6 sm:mt-48px mx-auto" @mouseout="maskOn.id = 0" >
-          <masonry-wall
-            :items="items"
-            :ssr-columns="columns"
-            :column-width="colWidth"
-            :padding="1"
-          >
-            <template #default="{ item }">
-                <article class="relative z-20 card m-1 cursor-pointer transition transform hover:scale-95 duration-300"
-                        >
-                  <transition name="loadMoreImages">
-                    <img
-                      :src="item.url"
-                      class="card-img-top z-20"
-                      @mouseenter="maskIt(item.id)"
+          <div v-if="items">
+
+            <masonry-wall
+              :items="items"
+              :ssr-columns="columns"
+              :column-width="colWidth"
+              :padding="1"
+            >
+              <template #default="{ item }">
+                  <article class="relative z-20 card m-1 cursor-pointer transition transform hover:scale-95 duration-300"
+                          >
+                    <transition name="loadMoreImages">
+                      <img
+                        :src="item.url"
+                        class="card-img-top z-20"
+                        @mouseenter="maskIt(item.id)"
+                        @click="initialIndex(item.id)"
+                      />
+                    </transition>
+                  <div v-show="maskOn.id === item.id"
+                      class="bg-aliceBrown bg-opacity-75 w-full h-12 top-0 left-0 right-0 bottom-0 absolute z-30"
                       @click="initialIndex(item.id)"
-                    />
-                  </transition>
-                <div v-show="maskOn.id === item.id"
-                     class="bg-aliceBrown bg-opacity-75 w-full h-12 top-0 left-0 right-0 bottom-0 absolute z-30"
-                     @click="initialIndex(item.id)"
-                     @mouseenter="maskIt(item.id)"
-                >
-                <div class="flex mt-2 mr-2">
-                    <i class="material-icons text-3xl text-gray-500 text-right w-full hover:text-gray-600 transition transform duration-300 ">
-                      zoom_in
-                    </i>
-                    <p class="whitespace-nowrap text-gray-500 text-sm -ml-4">Enlarge</p>
-                </div>
-                </div>
-                </article>
-            </template>
-          </masonry-wall>
+                      @mouseenter="maskIt(item.id)"
+                  >
+                  <div class="flex mt-2 mr-2">
+                      <i class="material-icons text-3xl text-gray-500 text-right w-full hover:text-gray-600 transition transform duration-300 ">
+                        zoom_in
+                      </i>
+                      <p class="whitespace-nowrap text-gray-500 text-sm -ml-4">Enlarge</p>
+                  </div>
+                  </div>
+                  </article>
+              </template>
+            </masonry-wall>
+          </div>
         <!-- End Of Masonry -->
 
           <!-- Receiving Array of Strings -->

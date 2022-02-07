@@ -1,5 +1,5 @@
 <template>
-  <div id="filterNav" class="mt-48px max-w-1800px h-auto">
+  <div v-show="categories > 1" id="filterNav" class="mt-48px max-w-1800px h-auto">
     <div class="flex justify-center sm:justify-start place-self-center space-x-1 flex-wrap font-overlockSC text-sm">
 
       <ul  v-for="(category, index) in categories" :key="index"

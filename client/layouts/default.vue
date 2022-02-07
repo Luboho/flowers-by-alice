@@ -115,9 +115,4 @@ export default {
   background-position: right ;
 }
 
-.thin-stripe {
-  background-image: url('~/assets/images/thinStripe.svg');
-  background-repeat: repeat-y;
-  background-position: left ;
-}
 </style>
