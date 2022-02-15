@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-1800px h-auto bg-gray-200 pt-64px flex-col">
-    <div class="mx-24px md:mx-64px">
+  <div class="h-auto bg-gray-200 pt-64px flex justify-center">
+    <div class="w-screen mx-24px md:mx-64px">
 
       <div>
         <img class="mx-auto" src="/logo.png" alt="Flovers by Alice" title="Flowers by Alice">
@@ -65,7 +65,7 @@
         </div>
       <!-- End of Nav -->
       <!-- Contact -->
-        <div class="mt-48px font-overlock flex flex-wrap justify-between">
+        <div class="mt-48px font-overlock flex flex-wrap justify-evenly">
           <div class="my-2">
             <h1>Direct contact</h1>
             <div class="text-aliceBlue text-sm">

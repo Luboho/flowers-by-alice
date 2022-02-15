@@ -93,7 +93,9 @@ module.exports = {
       '101': '25.25rem',
       '101.5': '25.35rem',
       '102': '25.50rem',
-      '102.5': '25.65rem'
+      '102.5': '25.65rem',
+      'smScreen': '330px',
+
     },
     maxHeight: {
       '250px': '250px',
@@ -159,7 +161,8 @@ module.exports = {
         '101.5': '25.35rem',
         '102': '25.50rem',
         '102.5': '25.65rem',
-        '150': '37.5rem'
+        '150': '37.5rem',
+
       },
       colors: {
         'lightPink': '#FFF9FE',

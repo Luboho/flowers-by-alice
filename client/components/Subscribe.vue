@@ -19,7 +19,6 @@
                       class="pt-8 rounded-t bg-gray-400 text-sm bg-opacity-25 w-full p-2 text-white outline-none focus:bg-opacity-75 focus:text-gold-500"
                       name="email"
                       placeholder="your-email@email.com"
-                      value=""
                       autocomplete="email"
                       @click="clearErrors"
                   >
