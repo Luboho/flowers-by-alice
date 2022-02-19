@@ -1,23 +1,25 @@
 <template>
-  <div class="mx-0 h-auto mt-32">
+  <div class="mx-0 h-auto pt-32 pb-64px bg-white z-30">
     <div class="max-w-1800px m-24px sm:m-64px">
       <!-- Header -->
-      <h1>Contact</h1>
-      <p>
-        Please submit your enquiry using the form below, we aim to reply within 24 hours.
-      </p>
-      <div class="flex justify-start items-center flex-wrap space-x-2">
+      <div class="my-20">
+        <h1>Contact</h1>
         <p>
-          Alternatively please call :
+          Please submit your enquiry using the form below, we aim to reply within 24 hours.
         </p>
-        <a class="text-aliceBlue whitespace-nowrap" href="tel:+ 07971 876 547"> 07971 876 547</a>
+        <div class="flex justify-start items-center flex-wrap space-x-2">
+          <p>
+            Alternatively please call :
+          </p>
+          <a class="text-aliceBlue whitespace-nowrap" href="tel:+ 07971 876 547"> 07971 876 547</a>
+        </div>
+        <p>
+          Best wishes
+        </p>
+        <p class="font-semibold text-lg ml-6">
+          Alice
+        </p>
       </div>
-      <p>
-        Best wishes
-      </p>
-      <p class="font-semibold text-lg ml-6">
-        Alice
-      </p>
     <!-- End of Header -->
     <!-- Contact Form -->
     <div class="mt-48px block mx-auto">
@@ -38,7 +40,6 @@
                           class="block mx-auto align-middle p-4 rounded bg-gray-200 text-sm bg-opacity-50 w-full md:w-80 text-darkPurple outline-none focus:shadow-inner focus:bg-opacity-75 focus:text-darkPurple"
                           type="name"
                           name="name"
-                          value=""
                           placeholder="Jane"
                           autocomplete="name"
                           @click="clearErrors"
@@ -59,7 +60,6 @@
                         class="block mx-auto align-middle p-4 rounded bg-gray-200 text-sm bg-opacity-50 w-full md:w-80 text-darkPurple outline-none focus:shadow-inner focus:bg-opacity-75 focus:text-darkPurple"
                         type="surname"
                         name="surname"
-                        value=""
                         placeholder="Doe"
                         autocomplete="surname"
                         @click="clearErrors"
@@ -83,7 +83,6 @@
                         class="block mx-auto align-middle p-4 rounded bg-gray-200 text-sm bg-opacity-50 w-full md:w-80 text-darkPurple outline-none focus:shadow-inner focus:bg-opacity-75 focus:text-darkPurple"
                         type="email"
                         name="email"
-                        value=""
                         placeholder="janedoe@email.com"
                         autocomplete="email"
                         @click="clearErrors"
@@ -106,7 +105,6 @@
                       v-model="form.phone"
                       class="block mx-auto align-middle p-4 rounded bg-gray-200 text-sm bg-opacity-50 w-full md:w-80 text-darkPurple outline-none focus:shadow-inner focus:bg-opacity-75 focus:text-darkPurple"
                       name="phone"
-                      value=""
                       placeholder="123 456 7890"
                       autocomplete="email"
                       @click="clearErrors"

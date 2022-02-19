@@ -7,7 +7,7 @@
               <div id="fb-root"></div>
               <div id="latest" class="w-screen flex justify-center bg-gray-100">
                 <div class="w-150 m-64px">
-                  <div class="fb-page ml-0 sm:ml-14" data-href="https://www.facebook.com/FlowersAliceFlowers" data-tabs="timeline" data-width="500" data-height="550" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/FlowersAliceFlowers" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/FlowersAliceFlowers">Flowers By Alice</a></blockquote></div>
+                  <div class="fb-page ml-0 sm:ml-10 md:ml-12 lg:ml-14" data-href="https://www.facebook.com/FlowersAliceFlowers" data-tabs="timeline" data-width="500" data-height="550" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/FlowersAliceFlowers" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/FlowersAliceFlowers">Flowers By Alice</a></blockquote></div>
                 </div>
               </div>
           <Footer />

@@ -170,7 +170,8 @@ module.exports = {
         'aliceBlue': '#8093F1',
         'alicePink' : '#F67E7D',
         'aliceGreen' : '#7A9B76',
-        'aliceBrown' : '#E9DDD2'
+        'aliceBrown' : '#E9DDD2',
+        'facebook': '#1877f2'
       },
     },
 

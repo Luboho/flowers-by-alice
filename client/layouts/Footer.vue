@@ -1,6 +1,6 @@
 <template>
   <div class="h-auto bg-gray-200 pt-64px flex justify-center">
-    <div class="w-screen mx-24px md:mx-64px">
+    <div class="w-screen px-24px md:px-64px">
 
       <div>
         <img class="mx-auto" src="/logo.png" alt="Flovers by Alice" title="Flowers by Alice">
