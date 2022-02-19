@@ -6,7 +6,7 @@ export default {
       lang: 'en'
     },
     env: {
-      baseUrl: process.env.BASE_URL || 'https://www.floressro.nl'
+      baseUrl: process.env.BASE_URL || 'https://www.flowersbyalice.online'
     },
     meta: [
       { charset: 'utf-8' },
@@ -112,10 +112,11 @@ export default {
   vuetify: {
     customVariables: ['~/assets/styles/variables.scss']
   },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://localhost:8000',
-    // baseURL: 'https://api.flowersbyalice.online',
+    // baseURL: 'http://localhost:8000',
+    baseURL: 'https://api.flowersbyalice.online',
     credentials: true
   },
 
