@@ -29,13 +29,13 @@ export default {
     data () {
         return {
         sharing: {
-            url: 'https://www.flowersbyalice.com',
+            url: 'https://www.flowersbyalice.online',
             image: "~@/assets/images/logo.png",
             title: 'Flowers By Alice',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quo laboriosam accusantium quisquam, voluptate, commodi fuga voluptatem magnam inventore eos cum perspiciatis tenetur nisi, rerum incidunt',
             quote: 'Lorem ipsum dolor sit amet consectetur',
             hashtags: 'Flowers, Flowers by Alice, Weddings, Occasions',
-            twitterUser: 'auto-dočista'
+            twitterUser: 'FlowersAlice'
         },
         networks: [
         //     { network: 'baidu', name: 'Baidu', icon: 'fas fah fa-lg fa-paw', color: '#2529d8' },

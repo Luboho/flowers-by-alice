@@ -115,8 +115,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://localhost:8000',
-    // baseURL: 'https://api.flowersbyalice.online',
+    // baseURL: 'http://localhost:8000',
+    baseURL: 'https://api.flowersbyalice.online',
     credentials: true
   },
 

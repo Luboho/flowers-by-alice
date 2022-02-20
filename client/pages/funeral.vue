@@ -10,6 +10,7 @@
     <div class="max-w-1800px">
       <ImgGallery />
     </div>
+      <SocialSharing />
 
     <div v-if="items" v-show="paginationTotal > 18">
         <Pagination store="images" collection="items" :filterByCategory="filterByCategory" />
@@ -22,6 +23,7 @@ import { mapState } from 'vuex'
 import Heading from '../components/Heading.vue'
 import Article from '../components/Article.vue'
 import ImgGallery from '../components/ImgGallery.vue'
+import SocialSharing from './../components/SocialSharing.vue'
 
 export default {
   name: "Funeral",
@@ -29,6 +31,7 @@ export default {
     Heading,
     Article,
     ImgGallery,
+    SocialSharing
   },
   data: () => ({
     headingText: {
@@ -101,12 +104,12 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: `${process.env.baseUrl +'/logo.png'}`
+        content: `${'https://www.flowersbyalice.online' +'/funerals/2.jpg'}`
       },
       {
         hid: 'og:image:secure_url',
         property: 'og:image:secure_url',
-        content: `${process.env.baseUrl +'/logo.png'}`
+        content: `${'https://www.flowersbyalice.online' +'/funerals/2.jpg'}`
       },
       {
         hid: 'og:image:alt',

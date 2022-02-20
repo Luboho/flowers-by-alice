@@ -9,6 +9,7 @@
     </div>
 
     <ImgGallery />
+    <SocialSharing />
 
     <div v-if="items" v-show="paginationTotal > 18">
         <Pagination store="images" collection="items" :filterByCategory="filterByCategory" />
@@ -22,6 +23,7 @@ import { mapState } from 'vuex'
 import Heading from '../components/Heading.vue'
 import Article from '../components/Article.vue'
 import ImgGallery from '../components/ImgGallery.vue'
+import SocialSharing from './../components/SocialSharing.vue'
 
 export default {
   name: "HomeDesing",
@@ -29,6 +31,7 @@ export default {
     Heading,
     Article,
     ImgGallery,
+    SocialSharing
   },
 
   data: () => ({
@@ -90,12 +93,12 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: `${process.env.baseUrl +'/logo.png'}`
+        content: `${'https://www.flowersbyalice.online' +'/home-design/2.jpg'}`
       },
       {
         hid: 'og:image:secure_url',
         property: 'og:image:secure_url',
-        content: `${process.env.baseUrl +'/logo.png'}`
+        content: `${'https://www.flowersbyalice.online' +'/home-design/2.jpg'}`
       },
       {
         hid: 'og:image:alt',
