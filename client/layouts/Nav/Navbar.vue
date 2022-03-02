@@ -130,7 +130,7 @@
           </li>
           <!-- Expandable -->
           <li @mouseover="submenu = true" @mouseleave="submenu = false">
-              <div class="flex items-center" @click="isOpen = false">
+              <div class="flex items-center">
                 <!-- <nuxt-link :to="{ name: 'index' }" class="my-4 inline-block hover:text-alicePink hover:font-bold font-medium transition duration-250 ease-in-out transform active:scale-75"
                            :class="{ 'border-b border-alicePink text-alicePink': currentPath == '/' || currentPath == '/wedding' || currentPath == '/workshop' || currentPath == '/funeral' }"
                            >Occasions
